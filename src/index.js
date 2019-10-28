@@ -8,7 +8,7 @@ type Query {
 `;
 
 // 2
-const resolver = {
+const resolvers = {
   Query: {
     info: () => `This is the API of Hackernews Clone`
   }
@@ -17,6 +17,6 @@ const resolver = {
 // 3
 const server = new GraphQLServer({
   typeDefs,
-  resolverValidationOptions
+  resolvers
 });
 server.start(() => console.log(`Server is running on http://localhost:4000`));
