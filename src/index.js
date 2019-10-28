@@ -1,0 +1,22 @@
+const { GraphQLServer } = require("graphql-yoga");
+
+// 1
+const typeDefs = `
+type Query {
+    info: String!
+}
+`;
+
+// 2
+const resolver = {
+  Query: {
+    info: () => `This is the API of Hackernews Clone`
+  }
+};
+
+// 3
+const server = new GraphQLServer({
+  typeDefs,
+  resolverValidationOptions
+});
+server.start(() => console.log(`Server is running on http://localhost:4000`));
